@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "kanban-angular"
+    }
+  },
+  "defaultProject": "kanban-angular",
+  "cli": {
+    "analytics": false
+  }
 }

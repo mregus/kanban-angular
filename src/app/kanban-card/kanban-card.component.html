@@ -1,0 +1,77 @@
+<!-- <table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>description</th>
+      <th>feature date</th>
+      <th>owner name</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of cards">
+      <td>{{ c.description }}</td>
+      <td>{{ c.featureDate }}</td>
+      <td>{{ c.ownerName }}</td>
+      <td>{{ c.status }}</td>
+    </tr>
+  </tbody>
+</table> -->
+<div class="row flex-row flex-sm-nowrap py-3">
+  <div class="col-sm-6 col-md-4 col-xl-3">
+      <div class="card bg-light">
+          <div class="card-body">
+              <h6 class="card-title text-uppercase text-truncate py-2">Backlog</h6>
+              <div class="items border border-light">
+                  <div class="card draggable shadow-sm mb-2" *ngFor="let c of cards">
+                    <div class="card-body p-2"><i class="fas fa-arrow-circle-right"></i>
+                          <p>
+                              {{ c.description }}
+                          </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="items border border-light" *ngIf="!this.isButtonVisible">
+                <div class="card draggable shadow-sm mb-2">
+                  <div class="card-body p-2"><i class="fas fa-arrow-circle-right"></i>
+                    <input type="text" class="mt-auto" #tempCard>
+                 </div>
+                 <button (click)="addToKanban(tempCard.value)" class="new-kanban">Create</button>
+                </div>
+            </div>
+          </div>
+          <button *ngIf="this.isButtonVisible" (click)="this.isButtonVisible = false" class="btn btn-link"><i class="fas fa-plus"></i> Add Card</button>
+      </div>
+  </div>
+  <div class="col-sm-6 col-md-4 col-xl-3">
+    <div class="card bg-light">
+        <div class="card-body">
+            <h6 class="card-title text-uppercase text-truncate py-2">In Progress</h6>
+            <div class="items border border-light">
+                <div class="card draggable shadow-sm"><i class="fas fa-arrow-circle-left"></i>
+                    <div class="card-body p-2"><i class="fas fa-arrow-circle-right"></i>
+                        <p style="text-align: justify;">
+                            This is a description of a item on the board.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-6 col-md-4 col-xl-3">
+  <div class="card bg-light">
+      <div class="card-body">
+          <h6 class="card-title text-uppercase text-truncate py-2">Completed</h6>
+          <div class="items border border-light">
+              <div class="card draggable shadow-sm"><i class="fas fa-arrow-circle-left"></i>
+                  <div class="card-body p-2">
+                      <p>
+                          This is a description of a item on the board.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
